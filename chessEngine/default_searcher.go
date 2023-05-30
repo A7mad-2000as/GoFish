@@ -221,25 +221,12 @@ func (searcher *DefaultSearcher) ReduceHistoryHeuristicScores() {
 }
 
 func (searcher *DefaultSearcher) isThreeFoldRepetition() bool {
-	// positionRepetitions := 1
-
-	// for positionHashIndex := uint16(0); positionHashIndex < searcher.positionHashHistoryCounter; positionHashIndex++ {
-	// 	if searcher.positionHashHistory[positionHashIndex] == searcher.position.PositionHash {
-	// 		positionRepetitions++
-	// 		if positionRepetitions == 3 {
-	// 			return true
-	// 		}
-	// 	}
-	// }
-	// return false
-
-	for repPly := uint16(0); repPly < searcher.positionHashHistoryCounter; repPly++ {
-		if searcher.positionHashHistory[repPly] == searcher.position.PositionHash {
+	for ply := uint16(0); ply < searcher.positionHashHistoryCounter; ply++ {
+		if searcher.positionHashHistory[ply] == searcher.position.PositionHash {
 			return true
 		}
 	}
 	return false
-
 }
 
 func (searcher *DefaultSearcher) AssignScoresToMoves(moves *MoveList, pvFirstMove Move, depth uint8, previousMove Move) {
