@@ -9,7 +9,7 @@ const (
 	BlackQueenSideCastlingSquaresMask = 0x70
 )
 
-func generatePseudoLegalMoves(currentPosition *Position) (moveList MoveList) {
+func GeneratePseudoLegalMoves(currentPosition *Position) (moveList MoveList) {
 	for pieceType := uint8(Knight); pieceType < NoneType; pieceType++ {
 		pieceBitboard := currentPosition.PiecesBitBoard[currentPosition.SideToMove][pieceType]
 		for pieceBitboard != 0 {
@@ -242,7 +242,7 @@ func DividePerft(currentPosition *Position, depth uint8, divisionPoint uint8, ev
 		return 1
 	}
 
-	pseudoLegalMoves := generatePseudoLegalMoves(currentPosition)
+	pseudoLegalMoves := GeneratePseudoLegalMoves(currentPosition)
 	totalVariations := uint64(0)
 	for i := uint8(0); i < pseudoLegalMoves.Size; i++ {
 		pseudoLegalMove := pseudoLegalMoves.Moves[i]
@@ -266,7 +266,7 @@ func Perft(currentPosition *Position, depth uint8, evaluator Evaluator) uint64 {
 		return 1
 	}
 
-	pseudoLegalMoves := generatePseudoLegalMoves(currentPosition)
+	pseudoLegalMoves := GeneratePseudoLegalMoves(currentPosition)
 	totalVariations := uint64(0)
 
 	for i := uint8(0); i < pseudoLegalMoves.Size; i++ {

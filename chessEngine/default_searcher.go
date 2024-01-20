@@ -444,7 +444,7 @@ func (searcher *DefaultSearcher) Negamax(evaluator Evaluator, depth int8, ply ui
 		}
 	}
 
-	pseudoLegalMoves := generatePseudoLegalMoves(&searcher.position)
+	pseudoLegalMoves := GeneratePseudoLegalMoves(&searcher.position)
 	searcher.AssignScoresToMoves(&pseudoLegalMoves, transpostionTableMove, ply, previousMove)
 
 	legalMoveCount := 0
@@ -595,7 +595,7 @@ func (searcher *DefaultSearcher) QuiescenceSearch(evaluator Evaluator, alpha int
 	pseudoLegalMoves := MoveList{}
 
 	if inCheck {
-		pseudoLegalMoves = generatePseudoLegalMoves(&searcher.position)
+		pseudoLegalMoves = GeneratePseudoLegalMoves(&searcher.position)
 	} else {
 		pseudoLegalMoves = generatePseudoLegalCapturesAndPromotionsToQueens(&searcher.position)
 	}
