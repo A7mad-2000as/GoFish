@@ -12,7 +12,9 @@ GoFish defines a contract for implementing custom search and evaluation modules.
 ## Usage
 GoFish employs Golang as the language of choice. Hence, Golang developement and runtime tools should be installed from the [official download page](https://go.dev/dl/). The installer will guide you through the necessary steps. Make sure to allow the installer to add Golang to PATH to allow using command line tools easily.
 
-A driver Golang module should be initialized locally in your required directory using the command `go mod init` which should create a `go.mod` and `go.sum` files in the workspace. The driver should introduce a Golang executable `main` package which imports GoFish and invokes either `NewDefaultEngineInterface()` which uses a default search and evaluation implementations, or `NewCustomEngineInterface(searcher, evaluator)` which requires custom implementations. Both the functions return an `EngineInterface` object which has a `StartEngine()` method used to initiate the engine.
+A driver Golang module should be initialized locally in your required directory using the command `go mod init <module name>` which should create a `go.mod` and `go.sum` files in the workspace. The driver should introduce a Golang executable `main` package which imports GoFish and invokes either `NewDefaultEngineInterface()` which uses a default search and evaluation implementations, or `NewCustomEngineInterface(searcher, evaluator)` which requires custom implementations. Both the functions return an `EngineInterface` object which has a `StartEngine()` method used to initiate the engine.
+
+> **_NOTE:_**  Depending on the version of Golang installed, you may need to run `go get github.com/A7mad-2000as/GoFish/chessEngine` after initializing the local Golang module and before using the imported GoFish module to be able to use it without errors.
 
 A working driver which uses the default implementation would look like this:
 ```
