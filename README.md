@@ -3,7 +3,9 @@
 </p>
 
 ## Overview
-GoFish is an open-source chess engine project written in Golang. The project aims to assist developers who are looking to implement chess engines by providing a ready-to-use framework that includes common engine modules, such as board representation, move encoding, and UCI compatability. This allows developers to plug in custom search and evaluation modules, which constitutes the algorithmic and heuristic parts of a chess engine. GoFish also includes a default search and evaluation implementation which can be used to construct a working engine if required.
+GoFish is an open-source chess engine project written in Golang. The project aims to assist developers who are looking to implement chess engines by providing a ready-to-use framework that includes common engine modules, such as board representation, move encoding, and UCI compatability. This allows developers to plug in custom search and evaluation modules, which constitutes the algorithmic and heuristic parts of a chess engine. GoFish also includes a default search and evaluation implementation which can be used to construct a working engine if required.  
+
+If you use this work, please cite this [paper](https://www.sciencedirect.com/science/article/abs/pii/S0957417424007218).
 
 ## Basic Workflow
 GoFish defines a contract for implementing custom search and evaluation modules. The contract is represented by Golang interfaces which requires implementation. If all functions defined in either interface are implemented by a Golang type, then that type can be used as a custom implementation which may be passed into the engine framwork to construct a working engine. 
